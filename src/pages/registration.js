@@ -346,7 +346,7 @@ import axios, { Axios } from 'axios';
 import AuthGuard from '@/components/AuthGuard';
 import { ScaleLoader } from 'react-spinners';
 
-const registration = () => {
+const Registration = () => {
     const router = useRouter()
 
     const imageRoute = process.env.NEXT_PUBLIC_IMAGE_ROUTE;
@@ -596,4 +596,4 @@ const registration = () => {
   )
 }
 
-export default registration
+export default Registration

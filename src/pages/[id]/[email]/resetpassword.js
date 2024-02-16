@@ -8,7 +8,7 @@ import { ScaleLoader } from 'react-spinners';
 import { MdArrowRight } from 'react-icons/md';
 
 
-const passwordreset = () => {
+const Passwordreset = () => {
 
   const router = useRouter();
   const { query } = useRouter();
@@ -209,7 +209,7 @@ const passwordreset = () => {
   )
 }
 
-export default passwordreset
+export default Passwordreset
 
 
 // {email && token 

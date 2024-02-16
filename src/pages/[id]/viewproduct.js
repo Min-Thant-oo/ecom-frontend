@@ -40,11 +40,11 @@ const Viewproduct = () => {
   const user_id = localStorage.getItem("user_id");
 
 
-  if (user_id) {
-    useEffect(() => {
+  useEffect(() => {
+      if (user_id) {
       setIsFavorite(favouriteItems.filter((item) => item.id == id).length !== 0);
+    }  
     }, [favouriteItems, isFavorite]);
-  }  
 
   useEffect(() => {
     const handleImageClick = async () => {

@@ -94,7 +94,7 @@ const ProductFeed = () => {
               ))}
 
             {data.length > 4 && (
-              <Image className="md:col-span-full" src={banner} alt="" />
+              <Image className="md:col-span-full w-full" src={banner} alt="" />
             )}
 
             <div className="md:col-span-2">
@@ -148,7 +148,6 @@ const ProductFeed = () => {
                 </span>
               )
             }
-
             previousLabel={
               showPrevButton && (
                 <span className="w-10 h-10 flex items-center justify-center bg-yellow-400 hover:bg-yellow-500 rounded-md mr-4">
@@ -156,7 +155,6 @@ const ProductFeed = () => {
                 </span>
               )
             }
-
             pageRangeDisplayed={3}
             pageCount={totalPages}
             containerClassName="flex items-center justify-center mt-8 pb- flex-wrap gap-y-4"

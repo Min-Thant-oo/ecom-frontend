@@ -19,7 +19,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import Footer from "@/components/footer/Footer";
 
-const userinfo = () => {
+const Userinfo = () => {
   const api_token = localStorage.getItem("api_token");
   const user_id = localStorage.getItem("user_id");
   const dispatch = useDispatch();
@@ -411,4 +411,4 @@ const userinfo = () => {
   );
 };
 
-export default userinfo;
+export default Userinfo;

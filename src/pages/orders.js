@@ -33,8 +33,8 @@ const Orders = () => {
   //   setIsLoading(false);
   // }, 2000);
 
-  if (user_id) {
-    useEffect(() => {
+  useEffect(() => {
+      if (user_id) {
       async function handleGetUserOrder() {
         try {
           const response = await axios.get(`${baseApiRoute}/getuserorder`, {
@@ -49,8 +49,8 @@ const Orders = () => {
         }
       }
       handleGetUserOrder();
+    }
     }, [user_id]);
-  }
 
   const handleReceiptDownload = async (transactionId, event) => {
     if (event) {
@@ -118,7 +118,7 @@ const Orders = () => {
                         </div>
                         <div className="w-96 p-4 bg-gray-100 flex flex-col items-center justify-center rounded-md shadow-lg">
                           <p className="font-bold text-xl">
-                            You haven't made any orders yet.
+                            You haven&apos;t made any orders yet.
                           </p>
                           <p className="text-sm text-center pt-2">
                             Your Shopping cart lives to serve. Give it purpose -

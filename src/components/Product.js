@@ -84,7 +84,7 @@ const Product = ({ id, title, price, description, category, image, src }) => {
       });
   };
 
-  if (user_id) {
+  // if (user_id) {
     
     // useEffect(() => {
     //   setIsFavourite(favouriteItems.some((item) => 
@@ -93,9 +93,11 @@ const Product = ({ id, title, price, description, category, image, src }) => {
     // }, [favouriteItems]);
  
     useEffect(() => {
-      setIsFavourite(favouriteItems.filter((item) => item.id == id).length !== 0);
+      if(user_id) {
+        setIsFavourite(favouriteItems.filter((item) => item.id == id).length !== 0);
+      }
     }, [favouriteItems, isFavourite]);
-  }
+  // }
 
   return (
     <div className="relative flex flex-col m-5 bg-white z-30 p-10">

@@ -7,10 +7,13 @@ import Image from "next/legacy/image";
 import { Toaster, toast } from "sonner";
 import { ScaleLoader } from "react-spinners";
 
-const contactus = () => {
+const Contactus = () => {
   const baseApiRoute = process.env.NEXT_PUBLIC_BASE_API_URL;
 
   const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(true)
+
+  // const [isLoading, setIsLoading] = useState(false)
 
   const [name, setname] = useState("");
   const [email, setEmail] = useState("");
@@ -234,4 +237,4 @@ const contactus = () => {
   );
 };
 
-export default contactus;
+export default Contactus;

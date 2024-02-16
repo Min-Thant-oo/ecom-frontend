@@ -522,9 +522,9 @@ const Header = ({ a, searchCateogry }) => {
     sethSearchTerm(a ?? "");
   }, [a, name]);
 
-  useEffect(() => {
-    // console.log(hsearchTerm);
-  }, [hsearchTerm]);
+  // useEffect(() => {
+  //   console.log(hsearchTerm);
+  // }, [hsearchTerm]);
 
   // Username Fetching
   // useEffect(() => {
@@ -572,6 +572,7 @@ const Header = ({ a, searchCateogry }) => {
       );
     }
   }, [selectedCategory]);
+
 
   // new, category click search
 
@@ -677,7 +678,7 @@ const Header = ({ a, searchCateogry }) => {
     } else {
       dispatch(clearUsername());
     }
-  }, [user_id, api_token, dispatch, name, setUsername, selectUsername]);
+  }, [user_id, api_token, dispatch, name]);
 
   // Categories Fetching
   useEffect(() => {

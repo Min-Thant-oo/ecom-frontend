@@ -6,7 +6,7 @@ import axios from 'axios';
 import AuthGuard from '@/components/AuthGuard';
 import { ScaleLoader } from 'react-spinners';
 
-const forgetpassword = () => {
+const Forgetpassword = () => {
     const [email, setEmail] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [message, setMessage] = useState('')
@@ -142,4 +142,4 @@ const forgetpassword = () => {
   )
 }
 
-export default forgetpassword
+export default Forgetpassword

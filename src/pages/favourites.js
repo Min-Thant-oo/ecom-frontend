@@ -304,7 +304,7 @@ import { Toaster } from "sonner";
 import { toast } from "sonner";
 import { ScaleLoader } from "react-spinners";
 
-const favourites = () => {
+const Favourites = () => {
   // const [favourites, setFavourites] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -637,4 +637,4 @@ const favourites = () => {
   );
 };
 
-export default favourites;
+export default Favourites;
