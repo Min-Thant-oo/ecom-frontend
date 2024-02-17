@@ -485,6 +485,8 @@ import {
   selectItems,
   selectUsername,
   selectUserImage,
+  setUserEmail,
+  setUserImage,
 } from "@/slices/amazonSlice";
 import favourites from "@/pages/favourites";
 import Link from "next/link";
@@ -572,7 +574,6 @@ const Header = ({ a, searchCateogry }) => {
       );
     }
   }, [selectedCategory]);
-
 
   // new, category click search
 
@@ -667,9 +668,10 @@ const Header = ({ a, searchCateogry }) => {
     if (api_token) {
       dispatch(fetchUserNameAsync({ api_token }))
         .unwrap()
-        .then((name) => {
-          dispatch(setUsername(name.name));
-          // setLoading(false);
+        .then((user) => {
+          dispatch(setUsername(user.name));
+          dispatch(setUserEmail(user.email));
+          dispatch(setUserImage(user.image));
         })
         .catch((error) => {
           console.error("Error fetching user name:", error);

@@ -23,7 +23,7 @@ const Userinfo = () => {
   const api_token = localStorage.getItem("api_token");
   const user_id = localStorage.getItem("user_id");
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const router = useRouter();
 
@@ -131,29 +131,6 @@ const Userinfo = () => {
     setProfilePicture(reduximage);
   }, [dispatch, api_token, reduxname, reduxemail, reduximage]);
 
-  //   // user name and email fetching
-  useEffect(() => {
-    if (api_token) {
-      dispatch(fetchUserNameAsync({ api_token }))
-        .unwrap()
-        .then((userinfo) => {
-          dispatch(setUsername(userinfo.name));
-          dispatch(setUserEmail(userinfo.email));
-          dispatch(setUserImage(userinfo.image));
-          // setname(userinfo.name || "");
-          // setEmail(userinfo.email || "");
-          setIsLoading(false);
-        })
-        .catch((error) => {
-          console.error("Error fetching user name:", error);
-          setIsLoading(false);
-        });
-    } else {
-      setIsLoading(false);
-      // dispatch(clearUsername());
-    }
-  }, [api_token, dispatch]);
-
   async function handleUserInfoChange(e) {
     e.preventDefault();
 
@@ -205,7 +182,10 @@ const Userinfo = () => {
       (!file || !errFile)
     ) {
       try {
-        const response = await axios.post(`${baseApiRoute}/userinfoupdate`,formdata,{
+        const response = await axios.post(
+          `${baseApiRoute}/userinfoupdate`,
+          formdata,
+          {
             headers: {
               Authorization: `Bearer ${api_token}`,
             },
@@ -220,6 +200,25 @@ const Userinfo = () => {
           setCPassword("");
           setFile("");
           profileInputRef.value = "";
+
+          dispatch(fetchUserNameAsync({ api_token }))
+            .unwrap()
+            .then((userinfo) => {
+              console.log({ userinfo });
+              dispatch(setUsername(userinfo.name));
+              dispatch(setUserEmail(userinfo.email));
+              dispatch(setUserImage(userinfo.image));
+              // setname(userinfo.name || "");
+              // setEmail(userinfo.email || "");
+              setIsLoading(false);
+            })
+            .catch((error) => {
+              console.error("Error fetching user name:", error);
+              setIsLoading(false);
+            });
+        } else {
+          setIsLoading(false);
+          // dispatch(clearUsername());
         }
       } catch (error) {
         console.log(error);
@@ -228,6 +227,8 @@ const Userinfo = () => {
       }
     }
   }
+
+  console.log({ profilePicture });
 
   return (
     <div>
@@ -324,7 +325,7 @@ const Userinfo = () => {
                       value={oldPassword}
                       type="password"
                       className="border rounded-sm placeholder:normal-case border-gray-400 px-2 py-1 w-full outline-none focus:drop-shadow-md"
-                    /> 
+                    />
                     {errOldPassword && (
                       <p className="text-red-500 text-sm font-semibold pt-1">
                         <span className="italic mr-1">!</span>

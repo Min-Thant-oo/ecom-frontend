@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import ProductFeed from "@/components/ProductFeed";
 import Banner from "@/components/Banner.js";
 import axios from "axios";
-import { useSearchParams } from "next/navigation";
 import { ScaleLoader } from "react-spinners";
 import Head from "next/head";
 import { Toaster } from "sonner";
@@ -24,15 +23,14 @@ const Search = () => {
   const [hsearchTerm, sethSearchTerm] = useState("");
   const [hselectedCategory, sethSelectedCategory] = useState(null);
 
-  const searchParams = useSearchParams();
-
   // useEffect(() => {
   //     sethSearchTerm(searchParams?.get('q'));
   //     sethSelectedCategory(searchParams?.get('category'));
   // }, [searchParams]);
 
-  const search = searchParams?.get("q");
-  const category = searchParams?.get("category");
+  const params = new URLSearchParams(window.location.search);
+  const search = params?.get("q");
+  const category = params?.get("category");
 
   //      useEffect(() => {
   //     const fetchData = async () => {
@@ -95,16 +93,12 @@ const Search = () => {
       />
 
       <main className="max-w-screen-2xl mx-auto">
-            {/* <Banner /> */}
+        {/* <Banner /> */}
 
-            <SearchFeed
-              searchTerm={search}
-              selectedCategory={category}
-            />
+        <SearchFeed searchTerm={search} selectedCategory={category} />
 
-
-            <Toaster richColors closeButton position="top-right" />
-        </main>
+        <Toaster richColors closeButton position="top-right" />
+      </main>
     </div>
   );
 };

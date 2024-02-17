@@ -13,47 +13,29 @@ const SearchFeed = ({ selectedCategory, searchTerm }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
 
-  const [currentPage, setCurrentPage] = useState(0);
+  const params = new URLSearchParams(window.location.search);
+
+  const [currentPage, setCurrentPage] = useState(params?.get("page") ?? 1);
   const [totalPages, setTotalPages] = useState(1);
+
+  console.log({ currentPage });
 
   const baseApiRoute = process.env.NEXT_PUBLIC_BASE_API_URL;
 
-  // console.log(selectedCategory,searchTerm)
-
   const handlePageChange = ({ selected }) => {
     setCurrentPage(selected);
-    console.log("Selected page:", selected);
-    // setTimeout(() => {
     window.scrollTo(0, 0);
-    // }, 800);
-    console.log("shit");
   };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         let response;
-        const page = currentPage + 1;
-
-        if (selectedCategory && !searchTerm) {
-          response = await axios.get(
-            // `${baseApiRoute}/categories/${selectedCategory}`
-            `${baseApiRoute}/categories/${selectedCategory}?page=${
-              currentPage + 1
-            }`
-          );
-        } else if (selectedCategory || searchTerm) {
-          response = await axios.get(
-            // `${baseApiRoute}/search/${searchTerm || ""}/${
-            //   selectedCategory || ""
-            // }`
-            `${baseApiRoute}/search/${searchTerm || ""}/${
-              selectedCategory || ""
-            }?page=${currentPage + 1}`
-          );
-        } else {
-          response = await axios.get(`${baseApiRoute}?page=${currentPage + 1}`);
-        }
+        response = await axios.get(
+          `${baseApiRoute}/search/?q=${searchTerm || ""}&category=${
+            selectedCategory || ""
+          }&page=${currentPage}`
+        );
 
         if (response.data.products) {
           console.log(response.data);
@@ -76,7 +58,7 @@ const SearchFeed = ({ selectedCategory, searchTerm }) => {
     };
 
     fetchData();
-  }, [currentPage, selectedCategory, searchTerm]);
+  }, [currentPage, searchTerm, selectedCategory]);
 
   const showNextButton = currentPage !== totalPages - 1;
   const showPrevButton = currentPage !== 0;

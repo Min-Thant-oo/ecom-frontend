@@ -19,7 +19,7 @@ export const addToFavouriteAsync = createAsyncThunk(
   async ({ user_id, product_id, api_token }, thunkAPI) => {
     const formData = new FormData();
     formData.append("user_id", user_id);
-    formData.append("product_id", product_id); 
+    formData.append("product_id", product_id);
 
     try {
       const response = await axios.post(`${baseApiRoute}/favourite`, formData, {
@@ -80,20 +80,20 @@ export const fetchUserFavouritesAsync = createAsyncThunk(
 
 export const fetchUserNameAsync = createAsyncThunk(
   "amazon/fetchUserNameFavourties",
-  async ({ api_token}, thunkAPI) => {
+  async ({ api_token }, thunkAPI) => {
     try {
       const response = await axios.get(`${baseApiRoute}/userinfo`, {
         headers: {
           Authorization: `Bearer ${api_token}`,
           Accept: "application/json",
         },
-      })
+      });
       return response.data.user;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
     }
   }
-)
+);
 
 // export const fetchCategoryAsync = createAsyncThunk(
 //   "amazon/fetchCategoryAsync",
@@ -132,7 +132,7 @@ export const amazonSlice = createSlice({
 
     setUsername: (state, action) => {
       state.userInfo = { ...state.userInfo, name: action.payload };
-    },    
+    },
 
     clearUsername: (state) => {
       state.userInfo.name = null;
@@ -144,7 +144,7 @@ export const amazonSlice = createSlice({
 
     setUserImage: (state, action) => {
       state.userInfo = { ...state.userInfo, image: action.payload };
-    },    
+    },
 
     // setCategories: (state, action) => {
     //   state.categories = { ...state.categories, name: action.payload }
@@ -160,7 +160,9 @@ export const amazonSlice = createSlice({
     },
 
     removeFromCart: (state, action) => {
-      state.products = state.products.filter((item) => item.id !== action.payload);
+      state.products = state.products.filter(
+        (item) => item.id !== action.payload
+      );
     },
 
     clearCart: (state) => {
@@ -185,7 +187,6 @@ export const amazonSlice = createSlice({
     setFavourites: (state, action) => {
       state.favourites = action.payload;
     },
-    
 
     addToFavourite: (state, action) => {
       const item = state.favourites.find((item) => item === action.payload.id);
@@ -199,14 +200,15 @@ export const amazonSlice = createSlice({
       //   (item) => item === action.payload.id
       // );
       // if (item) {
-        state.favourites = state.favourites.filter((item) => item.id !== action.payload.id);
+      state.favourites = state.favourites.filter(
+        (item) => item.id !== action.payload.id
+      );
       // }
     },
 
     clearFavourite: (state, action) => {
       state.favourites = [];
     },
-
   },
 });
 
