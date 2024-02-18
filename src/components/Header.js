@@ -932,7 +932,7 @@ const Header = ({ a, searchCateogry }) => {
                 >
                   {name ? (
                     <div className="w-full bg-amazon_blue-light text-white text-xl font-bold py-3 px-8 flex items-center gap-3">
-                      <Image
+                      <img
                         src={
                           profilePicture
                             ? `${imageRoute}/${profilePicture}`
