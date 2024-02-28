@@ -1,4 +1,4 @@
-## **Solar Ecom API(LARAVEL)**
+## **Solar Ecom**
 
 SOLAR ECOM is an ecommerce website where admin can showcase their products. Users can come and checkout the products and purchase what they like via `STRIPE`.
 
