@@ -2,15 +2,6 @@ import React, { useEffect, useState } from "react";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// use this if api request is made in redux(amazonSlice.js)
-// export const fetchAllProducts = createAsyncThunk(
-//   "amazon/fetchAllProducts",
-//   async () => {
-//     const response = await axios.get('http://127.0.0.1:8000/api')
-//     return response.data;
-//   }
-// )
-
 const imageRoute = process.env.NEXT_PUBLIC_IMAGE_ROUTE;
 const baseApiRoute = process.env.NEXT_PUBLIC_BASE_API_URL;
 

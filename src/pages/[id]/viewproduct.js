@@ -75,29 +75,6 @@ const Viewproduct = () => {
     handleImageClick();
   }, [id]);
 
-  // useEffect(() => {
-  //   async function handleGetUserFavouriteProduct() {
-  //     try {
-  //       const response = await axios.get(`${baseApiRoute}/getfavourite`, {
-  //         headers: {
-  //           Authorization: `Bearer ${api_token}`,
-  //         },
-  //       });
-  //       // console.log(response.data.userfavourites);
-  //       const userFavourites = response.data.favourites;
-  //       // Check if the current product is in the user's favourites
-  //       setIsFavorite(userFavourites.some((favProduct) => 
-  //         favProduct.id == product.id
-  //       ));
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   }
-  //   if (product?.id) {
-  //     handleGetUserFavouriteProduct();
-  //   }
-  // }, [product?.id]);
-
   async function handleAddToFavourite(productId) {
     const formData = new FormData();
     formData.append("user_id", user_id);
@@ -124,19 +101,6 @@ const Viewproduct = () => {
           Authorization: `Bearer ${api_token}`,
         },
       });
-      // console.log(response.data.message);
-      // dispatch(
-      //   addToFavourite({
-      //     // id: productId,
-      //     id: product?.id,
-      //     title: product?.title,
-      //     description: product?.description,
-      //     price: product?.price,
-      //     category: product?.category,
-      //     image: `${imageRoute}/${product?.image}`,
-      //     // quantity: 1,
-      //   })
-      // );
       setIsFavorite(true);
       // toast.success("Added to Favourite");
     } catch (error) {
@@ -171,19 +135,6 @@ const Viewproduct = () => {
           },
         }
       );
-      // console.log(response.data.message);
-      // dispatch(
-      //   removeFromFavourite({
-      //     // id: productId,
-      //     id: product?.id,
-      //     title: product?.title,
-      //     description: product?.description,
-      //     price: product?.price,
-      //     category: product?.category,
-      //     image: `${imageRoute}/${product?.image}`,
-      //     // quantity: 1,
-      //   })
-      // );
       setIsFavorite(false);
       // toast.success("Removed from Favourite");
     } catch (error) {

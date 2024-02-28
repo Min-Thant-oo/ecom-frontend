@@ -84,19 +84,13 @@ const Product = ({ id, title, price, description, category, image, src }) => {
       });
   };
 
-  // if (user_id) {
-    
-    // useEffect(() => {
-    //   setIsFavourite(favouriteItems.some((item) => 
-    //     item.id == id
-    //   ));
-    // }, [favouriteItems]);
- 
-    useEffect(() => {
-      if(user_id) {
-        setIsFavourite(favouriteItems.filter((item) => item.id == id).length !== 0);
-      }
-    }, [favouriteItems, isFavourite]);
+  useEffect(() => {
+    if (user_id) {
+      setIsFavourite(
+        favouriteItems.filter((item) => item.id == id).length !== 0
+      );
+    }
+  }, [favouriteItems, isFavourite]);
   // }
 
   return (

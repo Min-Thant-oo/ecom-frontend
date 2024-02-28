@@ -29,12 +29,8 @@ const Orders = () => {
   const imageRoute = process.env.NEXT_PUBLIC_IMAGE_ROUTE;
   const baseApiRoute = process.env.NEXT_PUBLIC_BASE_API_URL;
 
-  // setTimeout(() => {
-  //   setIsLoading(false);
-  // }, 2000);
-
   useEffect(() => {
-      if (user_id) {
+    if (user_id) {
       async function handleGetUserOrder() {
         try {
           const response = await axios.get(`${baseApiRoute}/getuserorder`, {
@@ -50,13 +46,14 @@ const Orders = () => {
       }
       handleGetUserOrder();
     }
-    }, [user_id]);
+  }, [user_id]);
 
   const handleReceiptDownload = async (transactionId, event) => {
     if (event) {
-      event.preventDefault(); // Prevent the default behavior of the anchor tag
+      event.preventDefault(); 
     }
     try {
+      // setIsLoading(true);
       const downloadUrl = await axios.get(
         `${baseApiRoute}/order/receipt/${transactionId}/download`,
         {
@@ -80,6 +77,13 @@ const Orders = () => {
 
       // Remove the link from the DOM
       // document.body.removeChild(downloadLink);
+      // setIsLoading(false);
+
+      //   if (response.status === 200) {
+      //     setIsLoading(false);
+      // } else {
+      //     console.error("Error downloading receipt. Status:", response.status);
+      // }
     } catch (error) {
       console.error("Error downloading receipt:", error);
     }

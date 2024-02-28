@@ -89,42 +89,6 @@ const Userinfo = () => {
       .match(/^[^ ]+@[^ ]+\.[a-z]{2,3}$/);
   };
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       if (api_token) {
-  //         const response = await axios.get(`${baseApiRoute}/userinfo`, {
-  //           headers: {
-  //             Authorization: `Bearer ${api_token}`,
-  //           },
-  //         });
-  //         setIsLoading(false);
-  //         // setname(response.data.user.name);
-  //         // setEmail(response.data.user.email);
-  //           // setFile(response.data.user.image)
-  //       } else {
-  //         // Handle the case when there is no api_token (user is not logged in)
-  //         // Redirect to the login page or handle it as per your application flow
-  //         //   setIsLoading(false);
-  //         router.push("/");
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching user info:", error);
-  //       if (error.response && error.response.status === 401) {
-  //         setIsLoading(false);
-  //         // Redirect to the login page when a 401 status code is received
-  //         router.push("/signin");
-  //       } else {
-  //         // Handle other errors gracefully
-  //         // setname("");
-  //         // setEmail("");
-  //       }
-  //     }
-  //   }
-
-  //   fetchData();
-  // }, [api_token, router]);
-
   useEffect(() => {
     setname(reduxname);
     setEmail(reduxemail);

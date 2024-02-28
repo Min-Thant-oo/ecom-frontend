@@ -210,15 +210,3 @@ const Passwordreset = () => {
 }
 
 export default Passwordreset
-
-
-// {email && token 
-//   ? (
-
-
-//     )
-
-//   : (
-//     <p>The page you're trying to get to isn't available</p>
-//   )
-// }

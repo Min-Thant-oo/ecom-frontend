@@ -11,9 +11,6 @@ import ReactPaginate from "react-paginate";
 import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import Footer from "./footer/Footer";
 import { current } from "@reduxjs/toolkit";
-// import ReactPaginate from 'react-js-pagination';
-
-// import { Pagination } from 'daisyui';
 
 const ProductFeed = () => {
   const router = useRouter();
@@ -51,11 +48,8 @@ const ProductFeed = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${baseApiRoute}?page=${currentPage}`);
-        console.log("Response data:", response.data);
-        console.log(
-          "Response data pagination:",
-          response.data.products.per_page
-        );
+        // console.log("Response data:", response.data);
+        // console.log("Response data pagination:", response.data.products.per_page);
         if (response.data.products.data) {
           setData(response.data.products.data);
           setTotalPages(response.data.products.last_page);
