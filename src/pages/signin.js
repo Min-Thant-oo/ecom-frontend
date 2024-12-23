@@ -53,6 +53,8 @@ const Signin = () => {
     if (email && emailValidation(email) && password) {
       setIsLoading(true);
       setsigninError("");
+
+      // assign them to item object
       let item = { email, password };
       try {
         const response = await axios.post(`${baseApiRoute}/signin`, item, {});

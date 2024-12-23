@@ -4,7 +4,7 @@ import Footer from '@/components/footer/Footer';
 import axios from 'axios';
 import moment from 'moment';
 import { ScaleLoader } from 'react-spinners';
-
+import logo from '../../../../images/logo.png'
 const View = () => {
     const router = useRouter();
     const [receipt, setReceipt] = useState([])
@@ -58,7 +58,12 @@ const View = () => {
                                         <div className="grid grid-cols-2 items-center">
                                             <div>
                                                 {/* Company logo */}
-                                                <img src="https://companieslogo.com/img/orig/AMZN-e9f942e4.png?t=1632523695" alt="company-logo" height="100" width="100" />
+                                                <img 
+                                                    src="https://companieslogo.com/img/orig/AMZN-e9f942e4.png?t=1632523695" 
+                                                    alt="company-logo" 
+                                                    height="100" 
+                                                    width="100" 
+                                                />
                                             </div>
                             
                                             <div className="text-right">

@@ -24,9 +24,9 @@ const Forgetpassword = () => {
 
     // Email validation
     const emailValidation = (email) => {
-        return String(email)
-            .toLowerCase()
-            .match(/^[^ ]+@[^ ]+\.[a-z]{2,3}$/)
+      return String(email)
+        .toLowerCase()
+        .match(/^[^ ]+@[^ ]+\.[a-z]{2,3}$/)
     }
 
     async function handleForgetPassword (e) {

@@ -241,7 +241,7 @@ const Favourites = () => {
                           src={
                             item.image
                               ? `${imageRoute}/${item.image}`
-                              : `https://source.unsplash.com/random/?${item.id}`
+                              : 'https://picsum.photos/520/450?random='+ Math.random()
                           }
                           alt=""
                           className="object-contain"

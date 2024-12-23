@@ -115,14 +115,9 @@ const Product = ({ id, title, price, description, category, image, src }) => {
       <Link href={`/${id}/viewproduct`} target="_blank" passHref>
         <div className="cursor-pointer">
           <img
-            // src={image ? `${imageRoute}/${image}` : 'https://picsum.photos/520/450?random='+ Math.random()}
-            src={
-              image
-                ? `${imageRoute}/${image}`
-                : `https://source.unsplash.com/random/${id}`
-            }
-            // width={200}
-            // height={200}
+            src={image ? `${imageRoute}/${image}` : 'https://picsum.photos/520/450?random='+ Math.random()}
+            width={200}
+            height={200}
             style={{ objectFit: "contain", paddingBottom: "13px" }}
             alt=""
             className="w-200 h-200"

@@ -86,10 +86,11 @@ const Passwordreset = () => {
             }, 1000);
 
 
-          } else {
-            setPasswordUpdateError(response.data.error)
-            // console.log('b')
-          }
+            } else {
+              setPasswordUpdateError(response.data.error)
+              // console.log('b')
+            }
+            
         } catch(error) {
             if (error.response) {
               setPasswordUpdateError(error.response.data.error);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import logo from "../../../images/logo.png";
-import turkey from "../../../images/turkey.png";
+import us from "../../../images/us.png";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -164,13 +164,13 @@ const FooterMiddle = () => {
         </div>
         <div className="flex items-center justify-center gap-x-1 border border-gray-500 px-2 py-1">
           <Image
-            src={turkey}
+            src={us}
             width={30}
             height={30}
             style={{ width: "auto", height: "auto" }}
             alt="img"
           />
-          <p>Turkey</p>
+          <p>US</p>
         </div>
       </div>
     </div>

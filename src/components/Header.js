@@ -228,7 +228,7 @@ const Header = ({ a, searchCateogry }) => {
         <div className="relative hidden sm:flex mx-5 items-center cursor-pointer text-white text-sm whitespace-pre-wrap ">
           <MapPinIcon className="absolute h-5 mt-4 -ml-5" />
           <p className="flex flex-col">
-            Deliver to <span className="font-bold">Turkey</span>
+            Deliver to <span className="font-bold">US</span>
           </p>
         </div>
 
