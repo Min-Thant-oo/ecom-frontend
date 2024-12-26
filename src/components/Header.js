@@ -54,7 +54,7 @@ const Header = ({ a, searchCateogry }) => {
 
   const [selectedCategory, setSelectedCategory] = useState("");
 
-  const imageRoute = process.env.NEXT_PUBLIC_IMAGE_ROUTE;
+  const imageRoute = process.env.NEXT_PUBLIC_PROFILE_IMAGE_ROUTE;
   const baseApiRoute = process.env.NEXT_PUBLIC_BASE_API_URL;
 
   const router = useRouter();
